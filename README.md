@@ -50,7 +50,7 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
    DB_PORT=3306
    DB_USER=root
    DB_PASSWORD=
-   DB_NAME=reservasi
+   DB_NAME=starter_express
    ```
 
 4. **Inisialisasi Sequelize**:
