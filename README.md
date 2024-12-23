@@ -7,6 +7,7 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
 - **JWT (JSON Web Token)** untuk autentikasi.
 - **bcrypt.js** untuk hashing password.
 - **Nodemon** untuk pengembangan dengan auto-reload server.
+- **Joi** untuk manajemen validasi
 
 ## Fitur Utama
 
@@ -166,6 +167,7 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
 - **Sequelize**: ORM untuk mengelola database.
 - **JWT**: Untuk autentikasi berbasis token.
 - **bcrypt.js**: Untuk hashing password.
+- **Joi** untuk manajemen validasi
 
 ---
 
