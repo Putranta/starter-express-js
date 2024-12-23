@@ -109,7 +109,7 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
    Response: `"Tess Backend is running"`
 
 2. **Register**  
-   **POST** `/api/register`  
+   **POST** `/api/user/register`  
    Body:
 
    ```json
@@ -125,8 +125,10 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
    - Success: `201 Created`
    - Error: `400 Bad Request`
 
+   ![SS postman register](public/register.png)
+
 3. **Login**  
-   **POST** `/api/login`  
+   **POST** `/api/user/login`  
    Body:
 
    ```json
@@ -141,13 +143,18 @@ Proyek ini adalah starter pack untuk membangun backend menggunakan **Express.js*
    - Success: `200 OK` (dengan token JWT)
    - Error: `401 Unauthorized`
 
+   ![SS postman login](public/login.png)
+
 4. **Profile** (Protected)  
-   **GET** `/api/profile`  
+   **GET** `/api/user/profile`  
    Header:  
    `Authorization: Bearer <JWT_TOKEN>`  
    Response:
+
    - Success: `200 OK`
    - Error: `401 Unauthorized`
+
+   ![SS postman profile](public/profile.png)
 
 ---
 
