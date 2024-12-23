@@ -1,6 +1,27 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
+const Joi = require("joi");
+
+const schema = Joi.object({
+  username: Joi.string()
+    .required()
+    .external(async (value) => {
+      const existingUser = await User.findOne({ where: { username: value } });
+      if (existingUser) {
+        throw new Error("Username already used");
+      }
+    }),
+  password: Joi.string().required().min(6),
+  email: Joi.string()
+    .required()
+    .external(async (value) => {
+      const existingUser = await User.findOne({ where: { email: value } });
+      if (existingUser) {
+        throw new Error("Email already registered");
+      }
+    }),
+});
 
 require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -9,6 +30,10 @@ const JWT_SECRET = process.env.JWT_SECRET;
 exports.register = async (req, res) => {
   const { username, password, email } = req.body;
   try {
+    await schema.validateAsync(
+      { username, password, email },
+      { abortEarly: false }
+    );
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
       username,
